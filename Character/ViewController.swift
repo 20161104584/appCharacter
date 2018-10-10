@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBAction func num_1(_ sender: Any) {
         srk.text = srk.text! + "1"
     }
+    @IBAction func srk1(_ sender: Any) {
+    }
     @IBAction func num_2(_ sender: Any) {
         srk.text = srk.text! + "2"
     }

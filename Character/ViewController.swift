@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     var judge = 0 //judge用来判断小数点是否出现过
     var add = 0
     var number = 0
+    var p = 0
     @IBAction func num_1(_ sender: Any) {
         if re == 1{
             srk.text = "1"
@@ -113,8 +114,11 @@ class ViewController: UIViewController {
     @IBAction func num_back(_ sender: Any) {
         srk.text?.removeLast()   }
     @IBAction func num_(_ sender: Any) {
+      if p == 0{
         srk.text = srk.text! + "."
         judge = 1
+        p=p+1
+        }
     }
     @IBAction func num_add(_ sender: Any) {
         if add == 1{
@@ -134,6 +138,7 @@ class ViewController: UIViewController {
              srk.text = ""
            number = 1
            re = 0
+                p=0
               }
              }
         
@@ -157,8 +162,9 @@ class ViewController: UIViewController {
                 srk1.text = String(x)
                 srk.text = ""
                 number = 2
-                re = 0
-                add = 1
+                re = 1
+                p=0
+    
             }
         }
         
@@ -183,6 +189,7 @@ class ViewController: UIViewController {
                 number = 3
                 re = 0
                 add = 1
+                p=0
             }
         }
         
@@ -207,6 +214,7 @@ class ViewController: UIViewController {
                 number = 4
                 re = 0
                 add = 1
+                p=0
             }
         }
         
@@ -214,6 +222,8 @@ class ViewController: UIViewController {
     
     @IBAction func num_makezero(_ sender: Any) {
         srk.text = " "
+        srk1.text = ""
+        p=0
     }
     @IBAction func num_equal(_ sender: Any) {
         var d:Double
@@ -242,9 +252,14 @@ class ViewController: UIViewController {
         else {
              srk.text = String(format:"%.0f", d)
             }
+        if c == 0 && number == 4 {
+            srk.text = "出错啦"
+        }
+        
         re = 1
         judge = 0
         add = 0
+        p=0
         }
         
     }

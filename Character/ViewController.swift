@@ -222,7 +222,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func num_makezero(_ sender: Any) {
-        srk.text = " "
+        srk.text = ""
         srk1.text = ""
         p=0
     }
@@ -261,6 +261,12 @@ class ViewController: UIViewController {
         }
         if c == 0 && number == 4 {
             srk.text = "出错啦"
+        }
+        while (srk.text?.last == "0"){
+            srk.text?.removeLast()
+        }
+        if(srk.text?.last == "."){
+           srk.text?.removeLast()
         }
         
         re = 1

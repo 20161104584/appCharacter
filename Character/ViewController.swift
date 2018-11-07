@@ -9,9 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-   
+    
     @IBOutlet weak var srk1: UITextField!
-    @IBOutlet weak var srk2: UITextField!
     @IBOutlet weak var srk: UILabel!
     override func viewDidLoad() {
         
@@ -21,7 +20,7 @@ class ViewController: UIViewController {
         
     }
     
-   var re = 0//判断srk.text前是否存在符号
+    var re = 0//判断srk.text前是否存在符号
     var judge = 0 //judge用来判断小数点是否出现过
     var add = 0
     var number = 0
@@ -31,23 +30,25 @@ class ViewController: UIViewController {
             srk.text = "1"
             re = 0
         }
-        else{
-        srk.text = srk.text! + "1"
+        else
+        {
+            srk.text = srk.text! + "1"
         }
     }
     @IBAction func num_2(_ sender: Any) {
         if re == 1{
             srk.text = "2"
-             re = 0
+            re = 0
         }
-        else{
+        else
+        {
             srk.text = srk.text! + "2"
         }
     }
     @IBAction func num_3(_ sender: Any) {
         if re == 1{
             srk.text = "3"
-             re = 0
+            re = 0
         }
         else{
             srk.text = srk.text! + "3"
@@ -56,7 +57,7 @@ class ViewController: UIViewController {
     @IBAction func num_4(_ sender: Any) {
         if re == 1{
             srk.text = "4"
-             re = 0
+            re = 0
         }
         else{
             srk.text = srk.text! + "4"
@@ -65,7 +66,7 @@ class ViewController: UIViewController {
     @IBAction func num_5(_ sender: Any) {
         if re == 1{
             srk.text = "5"
-             re = 0
+            re = 0
         }
         else{
             srk.text = srk.text! + "5"
@@ -74,7 +75,7 @@ class ViewController: UIViewController {
     @IBAction func num_6(_ sender: Any) {
         if re == 1{
             srk.text = "6"
-             re = 0
+            re = 0
         }
         else{
             srk.text = srk.text! + "6"
@@ -83,7 +84,7 @@ class ViewController: UIViewController {
     @IBAction func num_7(_ sender: Any) {
         if re == 1{
             srk.text = "7"
-             re = 0
+            re = 0
         }
         else{
             srk.text = srk.text! + "7"
@@ -92,7 +93,7 @@ class ViewController: UIViewController {
     @IBAction func num_8(_ sender: Any) {
         if re == 1{
             srk.text = "8"
-             re = 0
+            re = 0
         }
         else{
             srk.text = srk.text! + "8"
@@ -109,42 +110,42 @@ class ViewController: UIViewController {
     }
     @IBAction func num_0(_ sender: Any) {
         srk.text = srk.text! + "0"
-
+        
     }
     @IBAction func num_back(_ sender: Any) {
         srk.text?.removeLast()   }
     @IBAction func num_(_ sender: Any) {
-      if p == 0{
-        srk.text = srk.text! + "."
-        judge = 1
-        p=p+1
+        if p == 0{
+            srk.text = srk.text! + "."
+            judge = 1
+            p=p+1
         }
     }
     @IBAction func num_add(_ sender: Any) {
         if add == 1{
             let a = Double(srk1.text!)!
-    let b = Double(srk.text!)!
+            let b = Double(srk.text!)!
             let c = a + b
             srk1.text = String(c)
             srk.text = ""
             number = 1
             re = 1
-            }else{
+        }else{
             if srk.text == ""{
-            srk.text = "0"
-              }else {
-            let x = Double(srk.text!)!
-             srk1.text = String(x)
-             srk.text = ""
-           number = 1
-           re = 0
+                srk.text = "0"
+            }else {
+                let x = Double(srk.text!)!
+                srk1.text = String(x)
+                srk.text = ""
+                number = 1
+                re = 0
                 p=0
-              }
-             }
+            }
+        }
         
     }
     
-        
+    
     @IBAction func num_subtract(_ sender: Any) {
         if add == 1{
             let a = Double(srk1.text!)!
@@ -164,7 +165,7 @@ class ViewController: UIViewController {
                 number = 2
                 re = 1
                 p=0
-    
+                
             }
         }
         
@@ -231,27 +232,33 @@ class ViewController: UIViewController {
         let x = Double(srk1.text!)!
         c = (srk.text! as NSString).doubleValue
         if number == 1 {
-           d = x + c
-            }
-        else if number == 2 {
+            d = x + c
+        }
+        else if number == 2
+        {
             d = x - c
-            }
-        else if number == 3 {
+            
+        }
+        else if number == 3
+        {
             d = x * c
-            }
-        else if number == 4 {
-            d = x / (c)
-            }
+            
+        }
+        else if number == 4
+        {
+            d = x / c
+            
+        }
         else {
             d = 1000
-            }
-         srk.text = String(c)
+        }
+        srk.text = String(c)
         if judge == 1{
-             srk.text = String(format:"%f", d)
-            }
+            srk.text = String(format:"%f", d)
+        }
         else {
-             srk.text = String(format:"%.0f", d)
-            }
+            srk.text = String(format:"%.5f", d)
+        }
         if c == 0 && number == 4 {
             srk.text = "出错啦"
         }
@@ -260,8 +267,8 @@ class ViewController: UIViewController {
         judge = 0
         add = 0
         p=0
-        }
-        
     }
     
+}
+
 

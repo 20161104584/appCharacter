@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var srk1: UITextField!
     @IBOutlet weak var srk: UILabel!
     override func viewDidLoad() {
-        
+        srk1.text="0"//
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -134,6 +134,7 @@ class ViewController: UIViewController {
             if srk.text == ""{
                 srk.text = "0"
             }else {
+                   add = 1
                 let x = Double(srk.text!)!
                 srk1.text = String(x)
                 srk.text = ""
@@ -159,6 +160,7 @@ class ViewController: UIViewController {
             if srk.text == ""{
                 srk.text = "0"
             }else {
+                add = 1
                 let x = Double(srk.text!)!
                 srk1.text = String(x)
                 srk.text = ""
@@ -227,6 +229,11 @@ class ViewController: UIViewController {
         p=0
     }
     @IBAction func num_equal(_ sender: Any) {
+        if srk1.text == "0"
+        {
+            srk1.text = "0"
+        }
+        else{
         var d:Double
         var c:Double
         let x = Double(srk1.text!)!
@@ -272,7 +279,8 @@ class ViewController: UIViewController {
         re = 1
         judge = 0
         add = 0
-        p=0
+        p=0//
+    }
     }
     
 }

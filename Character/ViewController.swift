@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     @IBAction func num_2(_ sender: Any) {
         if re == 1{
             srk.text = "2"
-            re = 0
+           
         }
         else
         {
@@ -109,127 +109,153 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func num_0(_ sender: Any) {
-        srk.text = srk.text! + "0"
+        if re == 1{
+            srk.text = "0"
+            re = 0
+        }
+        else{
+            srk.text = srk.text! + "0"
+        }
         
     }
     @IBAction func num_back(_ sender: Any) {
-        srk.text?.removeLast()   }
+        if(srk.text != ""){
+            srk.text?.removeLast()
+        }
+           }
     @IBAction func num_(_ sender: Any) {
-        if p == 0{
+        
+        if judge == 0{
             srk.text = srk.text! + "."
             judge = 1
-            p=p+1
-        }
-    }
-    @IBAction func num_add(_ sender: Any) {
-        if add == 1{
-            let a = Double(srk1.text!)!
-            let b = Double(srk.text!)!
-            let c = a + b
-            srk1.text = String(c)
-            srk.text = ""
-            number = 1
-            re = 1
-        }else{
-            if srk.text == ""{
-                srk.text = "0"
-            }else {
-                   add = 1
-                let x = Double(srk.text!)!
-                srk1.text = String(x)
-                srk.text = ""
-                number = 1
-                re = 0
-                p=0
-            }
+           
         }
         
+    }
+    @IBAction func num_add(_ sender: Any) {
+        if(srk.text != ""){
+            if add == 1{
+                let a = Double(srk1.text!)!
+                let b = Double(srk.text!)!
+                let c = a + b
+                srk1.text = String(c)
+                srk.text = ""
+                number = 1
+                re = 1
+            }else{
+                if srk.text == ""{
+                    srk.text = "0"
+                }else
+                {
+                    add = 1
+                    let x = Double(srk.text!)!
+                    srk1.text = String(x)
+                    srk.text = ""
+                    number = 1
+                    re = 0
+                    //p=0
+                    judge = 0
+                }
+            }
+            
+        }
     }
     
     
     @IBAction func num_subtract(_ sender: Any) {
-        if add == 1{
-            let a = Double(srk1.text!)!
-            let b = Double(srk.text!)!
-            let c = a - b
-            srk1.text = String(c)
-            srk.text = ""
-            number = 2
-            re = 1
-        }else{
-            if srk.text == ""{
-                srk.text = "0"
-            }else {
-                add = 1
-                let x = Double(srk.text!)!
-                srk1.text = String(x)
+        if(srk.text != ""){
+            if add == 1{
+                let a = Double(srk1.text!)!
+                let b = Double(srk.text!)!
+                let c = a - b
+                srk1.text = String(c)
                 srk.text = ""
                 number = 2
                 re = 1
-                p=0
-                
+            }else{
+                if srk.text == ""{
+                    srk.text = "0"
+                }else {
+                    add = 1
+                    let x = Double(srk.text!)!
+                    srk1.text = String(x)
+                    srk.text = ""
+                    number = 2
+                    re = 1
+                    //p=0
+                    judge = 0
+                }
             }
         }
+        
         
     }
     
     @IBAction func num_multiply(_ sender: Any) {
-        if add == 1{
-            let a = Double(srk1.text!)!
-            let b = Double(srk.text!)!
-            let c = a * b
-            srk1.text = String(c)
-            srk.text = ""
-            number = 3
-            re = 1
-        }else{
-            if srk.text == ""{
-                srk.text = "0"
-            }else {
-                let x = Double(srk.text!)!
-                srk1.text = String(x)
+        if(srk.text != ""){
+            if add == 1{
+                let a = Double(srk1.text!)!
+                let b = Double(srk.text!)!
+                let c = a * b
+                srk1.text = String(c)
                 srk.text = ""
                 number = 3
-                re = 0
-                add = 1
-                p=0
+                re = 1
+            }else{
+                if srk.text == ""{
+                    srk.text = "0"
+                }else {
+                    let x = Double(srk.text!)!
+                    srk1.text = String(x)
+                    srk.text = ""
+                    number = 3
+                    re = 0
+                    add = 1
+                    //p=0
+                    judge = 0
+                }
             }
+            
         }
-        
     }
     
     @IBAction func num_divide(_ sender: Any) {
-        if add == 1{
-            let a = Double(srk1.text!)!
-            let b = Double(srk.text!)!
-            let c = a / b
-            srk1.text = String(c)
-            srk.text = ""
-            number = 4
-            re = 1
-        }else{
-            if srk.text == ""{
-                srk.text = "0"
-            }else {
-                let x = Double(srk.text!)!
-                srk1.text = String(x)
+        if(srk.text != ""){
+            if add == 1{
+                let a = Double(srk1.text!)!
+                let b = Double(srk.text!)!
+                let c = a / b
+                srk1.text = String(c)
                 srk.text = ""
                 number = 4
-                re = 0
-                add = 1
-                p=0
+                re = 1
+            }else{
+                if srk.text == ""{
+                    srk.text = "0"
+                }else {
+                    let x = Double(srk.text!)!
+                    srk1.text = String(x)
+                    srk.text = ""
+                    number = 4
+                    re = 0
+                    add = 1
+                    // p=0
+                    judge = 0
+                }
             }
         }
-        
     }
     
     @IBAction func num_makezero(_ sender: Any) {
         srk.text = ""
         srk1.text = ""
-        p=0
+        re = 0
+        judge = 0
+        number = 0
+        add = 0
     }
     @IBAction func num_equal(_ sender: Any) {
-        if srk1.text == "0"
+        if srk1.text == ""
         {
             srk1.text = "0"
         }
@@ -279,7 +305,8 @@ class ViewController: UIViewController {
         re = 1
         judge = 0
         add = 0
-        p=0//
+        //p=0//
+            number = 0
     }
     }
     

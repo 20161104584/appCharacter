@@ -133,6 +133,9 @@ class ViewController: UIViewController {
         
     }
     @IBAction func num_add(_ sender: Any) {
+        if number != 0 {
+            num_equal(number)
+        }
         if(srk.text != ""){
             if add == 1{
                 let a = Double(srk1.text!)!
@@ -163,6 +166,9 @@ class ViewController: UIViewController {
     
     
     @IBAction func num_subtract(_ sender: Any) {
+        if number != 0 {
+            num_equal(number)
+        }
         if(srk.text != ""){
             if add == 1{
                 let a = Double(srk1.text!)!
@@ -192,6 +198,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func num_multiply(_ sender: Any) {
+        if number != 0 {
+            num_equal(number)
+        }
         if(srk.text != ""){
             if add == 1{
                 let a = Double(srk1.text!)!
@@ -220,6 +229,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func num_divide(_ sender: Any) {
+        if number != 0 {
+            num_equal(number)
+        }
         if(srk.text != ""){
             if add == 1{
                 let a = Double(srk1.text!)!
@@ -246,6 +258,22 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func num_per(_ sender: Any) {
+        if srk1.text != "" {
+            let num1 = Double(srk1.text!)!
+            let num2 = num1 * 0.01
+            srk1.text = String(num2)
+        }
+        
+        
+    }
+    @IBAction func num_change(_ sender: Any) {
+        if srk1.text != "" {
+            let num1 = Double(srk1.text!)!
+            let num2 = -num1
+            srk1.text = String(num2)
+        }
+    }
     @IBAction func num_makezero(_ sender: Any) {
         srk.text = ""
         srk1.text = ""
@@ -255,6 +283,7 @@ class ViewController: UIViewController {
         add = 0
     }
     @IBAction func num_equal(_ sender: Any) {
+        
         if srk1.text == ""
         {
             srk1.text = "0"
@@ -303,7 +332,7 @@ class ViewController: UIViewController {
         }
         
         re = 1
-        judge = 0
+        //judge = 0
         add = 0
         //p=0//
             number = 0
